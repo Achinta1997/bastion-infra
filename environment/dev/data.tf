@@ -19,6 +19,12 @@ data "azurerm_public_ip" "data-pip-bastion" {
     depends_on = [ module.BASTION_PIP ]
 }
 
+data "azurerm_public_ip" "data-pip-lb" {
+  name                = "humaraLBPIP"
+  resource_group_name = "humaraRG"
+    depends_on = [ module.LB_PIP ]
+}
+
 data "azurerm_network_security_group" "data-nsg" {
   name                = "humaraNSG"
   resource_group_name = "humaraRG"
